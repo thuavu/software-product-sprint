@@ -162,6 +162,12 @@ img.imgAlign{
   }
 }
 
+iframe{
+    width:50vw; 
+    height:30vw; 
+    border: 2px solid #ccc;
+}
+
 footer{
     left: 0;
     bottom: 0;
@@ -171,8 +177,8 @@ footer{
 }
 
 img.footerIcon{
-    width:23px;
-    height:23px;
+    width:5%;
+    height:5%;
     margin:8px 0px;
     max-width:50%;
     position: relative;
