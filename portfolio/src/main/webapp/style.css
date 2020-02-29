@@ -187,3 +187,9 @@ img.footerIcon{
     margin-right: auto;
 }
 
+button.buttonBox{
+    margin:auto;
+    border: #2B2B2B;
+    width:20vw;
+    background-color:#868686;	
+}

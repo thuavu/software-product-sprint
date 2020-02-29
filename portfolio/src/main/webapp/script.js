@@ -34,3 +34,9 @@ function addRandomGreeting() {
         iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
     }
 }
+
+/* Request content from the server and add it to the html page */
+function requestContent() {
+    fetch('/data').then(response => response.text()).then((someText) => {
+    document.getElementById('body').innerHTML = someText});
+}
