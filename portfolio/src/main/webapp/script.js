@@ -39,4 +39,14 @@ function addRandomGreeting() {
 function requestContent() {
     fetch('/data').then(response => response.text()).then((someText) => {
     document.getElementById('body').innerHTML = someText});
+
+    /*fetch('/data').then(response => {
+        console.log(response)
+    });*/
+
+    fetch('/data')  // sends a request to /my-data-url
+        .then(response => response.json()) // parses the response as JSON
+        .then((myObject) => { // now we can reference the fields in myObject!
+        debugger; console.log(myObject.Comment);
+    });
 }
