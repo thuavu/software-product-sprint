@@ -25,4 +25,22 @@ function addRandomGreeting() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+
+    // Selecting the iframe element
+    var iframe = document.getElementById("myIframe");
+
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+}
+
+/* Request content from the server and add it to the html page */
+function requestContent() {
+
+    fetch('/data').then(response => response.json()).then((someTexts) => {
+        const statsListElement = document.getElementById('body');
+        statsListElement.innerHTML = someTexts;
+    });
+
 }
