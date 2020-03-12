@@ -23,6 +23,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.google.gson.Gson;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
@@ -44,33 +48,21 @@ public class DataServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        /*// Get the input from the form.
-        String text = getParameter(request, "text-input", "");
-        //boolean someText = Boolean.parseBoolean(getParameter(request, "some-case", "false"));
-       
-        // Break the text into individual words.
-        String[] words = text.split("\\s*,\\s*");
-
-        //if (someText){}
-
-
-        // Respond with the result.
-            //response.setContentType("text/html;");
-            //response.getWriter().println(Arrays.toString(words));
-        // Redirect back to the HTML page.
-        response.sendRedirect("/index.html");*/
-
-        response.setContentType("application/json;");
+        // Get the input from the form.
+    
         String text = getParameter(request, "text-input", "");
     
         ArrayList<String> listValues = new ArrayList<String>(); 
-        if(text != ""){
-            listValues.add(text);
-        }
+        listValues.add(text);
 
-        Gson gson = new Gson();
-        String json = gson.toJson(listValues);
-        //response.getWriter().println(json);
+        response.getWriter().println(text);
+
+        // Datastore
+        Entity commentEntity = new Entity("Comment");
+        commentEntity.setProperty("text-input", text);
+
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        datastore.put(commentEntity);
 
         // Redirect back to the HTML page.
         response.sendRedirect("/form.html");

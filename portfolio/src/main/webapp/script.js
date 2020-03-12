@@ -41,13 +41,20 @@ function requestContent() {
     fetch('/data').then(response => response.json()).then((someTexts) => {
         const statsListElement = document.getElementById('body');
         statsListElement.innerHTML = someTexts;
-
-        // Build the list of history entries.
-        const historyEl = document.getElementById('history');
-        game.history.forEach((line) => {
-        historyEl.appendChild(createListElement(line));
-        });
     });
+
+}
+
+function createCommentElement(comment) {
+    // Build the list of history entries.
+    const historyEl = document.getElementById('history');
+    history.forEach((line) => {
+        historyEl.appendChild(createListElement(line));
+    });
+
+    //taskElement.appendChild(historyEl);
+    return historyEl;
+
 }
 
 /** Creates an <h2> element containing text. */
