@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import com.google.gson.Gson;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
@@ -32,13 +33,56 @@ public class DataServlet extends HttpServlet {
         //response.getWriter().println("<h1>Hello Thu!</h1>");
     
         ArrayList<String> listValues = new ArrayList<String>(); 
-        listValues.add("Comment 1");
-        listValues.add("Another comment number 2");
-        listValues.add("A 3rd comment for testing");
+        //listValues.add("Comment 1");
+        //listValues.add("Another comment number 2");
+        //listValues.add("A 3rd comment for testing");
 
         Gson gson = new Gson();
         String json = gson.toJson(listValues);
         response.getWriter().println(json);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /*// Get the input from the form.
+        String text = getParameter(request, "text-input", "");
+        //boolean someText = Boolean.parseBoolean(getParameter(request, "some-case", "false"));
+       
+        // Break the text into individual words.
+        String[] words = text.split("\\s*,\\s*");
+
+        //if (someText){}
+
+
+        // Respond with the result.
+            //response.setContentType("text/html;");
+            //response.getWriter().println(Arrays.toString(words));
+        // Redirect back to the HTML page.
+        response.sendRedirect("/index.html");*/
+
+        response.setContentType("application/json;");
+        String text = getParameter(request, "text-input", "");
+    
+        ArrayList<String> listValues = new ArrayList<String>(); 
+        if(text != ""){
+            listValues.add(text);
+        }
+
+        Gson gson = new Gson();
+        String json = gson.toJson(listValues);
+        //response.getWriter().println(json);
+
+        // Redirect back to the HTML page.
+        response.sendRedirect("/form.html");
+
+    }
+
+    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+        String value = request.getParameter(name);
+        if (value == null) {
+            return defaultValue;
+        }
+        return value;
     }
 }
 

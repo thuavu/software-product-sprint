@@ -41,6 +41,18 @@ function requestContent() {
     fetch('/data').then(response => response.json()).then((someTexts) => {
         const statsListElement = document.getElementById('body');
         statsListElement.innerHTML = someTexts;
-    });
 
+        // Build the list of history entries.
+        const historyEl = document.getElementById('history');
+        game.history.forEach((line) => {
+        historyEl.appendChild(createListElement(line));
+        });
+    });
+}
+
+/** Creates an <h2> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('h2');
+  liElement.innerText = text;
+  return liElement;
 }

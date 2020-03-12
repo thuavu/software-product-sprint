@@ -20,29 +20,25 @@
 
         <center>
             <button class="buttonBox" onclick="requestContent()"><h3>Request Data</h3></button>
-            <a href="form.html"><button class="buttonBox"><h3>Form Page</h3></button></a>
         </center>
         <br>
 
-        <h1>Thu's Portfolio</h1>
+        <h1>Form Page</h1>
+
+        
 
         <div class="box1">
-            <p>I am a sophmore currently studying Computer Science at the University of Texas. 
-                My family origanted from Vietnam and I am the eldest out of 3. </p>
-            <p>When describing myself, I would say that I am an artist at heart. I enjoy 
-                creating anything unique—drawings, graphics, videos, stories, codes, etcetera. 
-                I am also very observant when it comes to patterns considering I am a visual 
-                learner.</p>
-            <p>At times I am a very introverted person who enjoys stories from any medium 
-                such as movies, shows, and books. People typically would describe me as a 
-                quiet person. They would also say I am attentive to those around others and 
-                find my personality charming. I am even described as a person that has a 
-                soft-spoken kind of confidence.</p>
+            <h2 id="history"></h2>
+
+            <form action="/data" method="POST">
+                <p>Enter comment:</p>
+                <textarea name="text-input"></textarea>
+                <br/><br/>
+
+                <input type="submit" />
+            </form>
         </div>
 
-        <center>
-		<img class="imgAlign" src="images/IMG_2941.JPG" width="230" height="650"/>
-		</center>
     </div>
 
     <footer>
