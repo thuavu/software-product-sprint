@@ -7,7 +7,7 @@
     <script src="script.js"></script>
   </head>
 
-  <body id="body">
+  <body id="body" onload="loadComments()">
     <div class="outerBox">
         <a href="index.html"><img class="banner" src="images/BannerText.png"/></a>
         
@@ -18,30 +18,32 @@
             <a href="gallery.html"><img class="button" src="images/Button_Gallery.png"/></a>
         </div>
 
-        <center>
+        <!--<center>
             <button class="buttonBox" onclick="requestContent()"><h3>Request Data</h3></button>
-        </center>
+        </center>-->
         <br>
 
         <h1>Form Page</h1>
 
-        
-
         <div class="box1">
 
-            <form action="/data" method="POST">
-                <p>Enter comment:</p>
-                <textarea name="text-input"></textarea>
-                <br/><br/>
-
-                <input type="submit" />
-            </form>
-
-            <h2 id="history"></h2>
-            
+            <form action="/new-comment" method="POST">
+                <p>Enter a comment:</p>
+                <textarea class="textBox" name="title"></textarea >
+                <br>
+                <br>
+                <button class="buttonBox button01"><h3>Submit<h3></button>
+            </form>            
         </div>
-
     </div>
+
+    <center>
+        <ul id="comment-list"></ul>
+    </center>
+
+    <br>
+    <br>
+    <br>
 
     <footer>
         <a href="https://github.com/thuavu"><img class="footerIcon" src="images/github.png"/></a>

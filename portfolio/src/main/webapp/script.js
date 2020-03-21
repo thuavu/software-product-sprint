@@ -35,17 +35,18 @@ function addRandomGreeting() {
     }
 }
 
+//////////////////////
 /* Request content from the server and add it to the html page */
-function requestContent() {
+/*function requestContent() {
 
     fetch('/data').then(response => response.json()).then((someTexts) => {
         const statsListElement = document.getElementById('body');
         statsListElement.innerHTML = someTexts;
     });
 
-}
+}*/
 
-function createCommentElement(comment) {
+/*function createCommentElement(comment) {
     // Build the list of history entries.
     const historyEl = document.getElementById('history');
     history.forEach((line) => {
@@ -55,11 +56,54 @@ function createCommentElement(comment) {
     //taskElement.appendChild(historyEl);
     return historyEl;
 
-}
+}*/
 
 /** Creates an <h2> element containing text. */
-function createListElement(text) {
+/*function createListElement(text) {
   const liElement = document.createElement('h2');
   liElement.innerText = text;
   return liElement;
+}*/
+
+/** Fetches tasks from the server and adds them to the DOM. */
+function loadComments() {
+  fetch('/comment-history').then(response => response.json()).then((commentsList) => {
+    const commentListElement = document.getElementById('comment-list');
+    commentsList.forEach((comment) => {
+      commentListElement.appendChild(createCommentElement(comment));
+    })
+  });
 }
+
+/** Creates an element that represents a comment */
+function createCommentElement(comment) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+
+  const titleElement = document.createElement('span');
+  titleElement.innerText = comment.title;
+
+  // Delete comment
+  const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.classList.add("button01");
+
+  deleteButtonElement.innerText = 'Delete';
+  deleteButtonElement.addEventListener('click', () => {
+    deleteComment(comment);
+
+    // Remove the task from the DOM.
+    commentElement.remove();
+  });
+
+  commentElement.appendChild(titleElement);
+  commentElement.appendChild(deleteButtonElement);
+  return commentElement;
+}
+
+/** Tells the server to delete the task. */
+function deleteComment(comment) {
+  const params = new URLSearchParams();
+  params.append('id', comment.id);
+  fetch('/delete-comment', {method: 'POST', body: params});
+}
+
