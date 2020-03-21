@@ -85,8 +85,9 @@ function createCommentElement(comment) {
 
   // Delete comment
   const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.classList.add("deleteButton");
   deleteButtonElement.classList.add("button01");
-
+  
   deleteButtonElement.innerText = 'Delete';
   deleteButtonElement.addEventListener('click', () => {
     deleteComment(comment);

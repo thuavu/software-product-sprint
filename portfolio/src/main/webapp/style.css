@@ -213,6 +213,29 @@ button.buttonBox{
 	cursor: pointer;	
 }
 
+.deleteButton{
+    font: 70% Helvetica, sans-serif;
+    font-stretch: ultra-expanded;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFFFFF;
+    
+    margin:auto;
+    border: #2B2B2B;
+    width:8vw;
+    background-color:#868686;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;	
+}
+
+.deleteButton:hover {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+}
+
+
 .button01 {
 	color: #1A1A1A;
 		
@@ -221,8 +244,8 @@ button.buttonBox{
 }
 
 .button01:hover {
-		background-color: #1F1F1F;
-		color: FFFFFF;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
 }
 
 #comment-list {
