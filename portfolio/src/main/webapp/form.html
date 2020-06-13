@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Thu's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body id="body" onload="loadComments()">
+    <div class="outerBox">
+        <a href="index.html"><img class="banner" src="images/BannerText.png"/></a>
+        
+        <div class="buttonBox">
+            <a href="academic.html"><img class="button" src="images/Button_Academic.png"/></a>
+            <a href="interests.html"><img class="button" src="images/Button_Interests.png"/></a>
+            <a href="computerSkills.html"><img class="button" src="images/Button_ComputerSkills.png"/></a>
+            <a href="gallery.html"><img class="button" src="images/Button_Gallery.png"/></a>
+        </div>
+
+        <br>
+
+        <h1>Form Page</h1>
+
+        <div class="box1">
+
+            <form action="/new-comment" method="POST">
+                <p>Enter a comment:</p>
+                <textarea class="textBox" name="title"></textarea >
+                <br>
+                <br>
+                <button class="buttonBox button01"><h3>Submit<h3></button>
+            </form>            
+        </div>
+    </div>
+
+    <center>
+        <ul id="comment-list"></ul>
+    </center>
+
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <a href="https://github.com/thuavu"><img class="footerIcon" src="images/github.png"/></a>
+        <a href="https://www.linkedin.com/in/thu-vu-696869169/"><img class="footerIcon" src="images/linkedin_.png"/></a>
+        <a href="https://www.deviantart.com/fairyrave"><img class="footerIcon" src="images/deviantart.png"/></a>
+    </footer>
+
+  </body>
+</html>

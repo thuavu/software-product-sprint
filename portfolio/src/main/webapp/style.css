@@ -187,9 +187,80 @@ img.footerIcon{
     margin-right: auto;
 }
 
+textarea.textBox{
+    width: 60%;
+    height: 50%;
+    padding: 10px;
+
+    font: 15px/25px Helvetica, sans-serif;
+    font-stretch: ultra-expanded;
+    text-transform: uppercase;
+}
+
+
 button.buttonBox{
+    font: 15px/25px Helvetica, sans-serif;
+    font-stretch: ultra-expanded;
+    text-transform: uppercase;
+    
     margin:auto;
     border: #2B2B2B;
     width:20vw;
-    background-color:#868686;	
+    background-color:#868686;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;	
+}
+
+.deleteButton{
+    font: 70% Helvetica, sans-serif;
+    font-stretch: ultra-expanded;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFFFFF;
+    
+    margin:auto;
+    border: #2B2B2B;
+    width:8vw;
+    background-color:#868686;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;	
+}
+
+.deleteButton:hover {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+}
+
+
+.button01 {
+	color: #1A1A1A;
+		
+	background-color: #FFFFFF;
+	border: 1px solid;
+}
+
+.button01:hover {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+}
+
+#comment-list {
+  list-style-type: none;
+}
+
+.comment {
+  color:#FFFFFF;
+  border: thin solid #FFFFFF;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.comment span {
+  flex-grow: 1;
 }
